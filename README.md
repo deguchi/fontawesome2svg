@@ -1,8 +1,9 @@
 # fontawesome2svg
+https://deguchi.github.io/fontawesome2svg/
+
 fontawesomeのHTMLをSVGに変換するツール  
 Tool to convert fontawesome HTML to SVG
 
-https://deguchi.github.io/fontawesome2svg/
 
 ```<i class="fa fa-cog" aria-hidden="true"></i>  ```
 
