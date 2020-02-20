@@ -1,7 +1,7 @@
 # fontawesome2svg
 fontawesome tag to svg code
 
-<i class="fa fa-cog" aria-hidden="true"></i>  
+```<i class="fa fa-cog" aria-hidden="true"></i>  ```
 
 のようなfont-awesomeのクラスを含む文字列を入れるとSVGを表示。  
 SVGをクリックするとクリップボードにSVGをコピーします。
