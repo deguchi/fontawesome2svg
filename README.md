@@ -1,5 +1,6 @@
 # fontawesome2svg
-fontawesome tag to svg code
+fontawesomeのHTMLをSVGに変換するツール
+Tool to convert fontawesome HTML to SVG
 
 ```<i class="fa fa-cog" aria-hidden="true"></i>  ```
 
