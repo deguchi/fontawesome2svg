@@ -6,7 +6,7 @@ fontawesome tag to svg code
 のようなfont-awesomeのクラスを含む文字列を入れるとSVGを表示。  
 SVGをクリックするとクリップボードにSVGをコピーします。
 
-If you enter a string containing the font-awesome class as above, SVG will be displayed.
+If you enter a string containing the font-awesome class as above, SVG will be displayed.  
 Click SVG to copy the SVG to the clipboard.
 
 ## License
