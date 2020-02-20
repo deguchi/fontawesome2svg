@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fontawesome2svg</title>
+    <style>
+        body {
+            width: 800px;
+            margin: 30px auto;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        #className {
+            width: 100%;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #preview {
+            width: 100px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        #preview div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+        }
+        #preview svg {
+            width: 100px;
+            cursor: pointer;
+        }
+        #preview svg:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <h1>fontawesome2svg</h1>
+    <input type="text" id="className" placeholder="Enter tag or class name" />
+    <div id="preview">
+
+    </div>
+    <script>
+        document.getElementById('className').addEventListener('focus', (e) => {
+            e.target.select()
+        })
+        document.getElementById('className').addEventListener('keyup', (e) => {
+            console.log(e.target.value)
+            const match = e.target.value.match(/fa-[^"]+/)
+            if (match) {
+                let svgName = match[0].split('fa-')
+                showSVG(svgName[1])
+            }            
+        })
+        const showSVG = (svgName) => {
+            console.log(svgName)
+            document.getElementById('preview').innerHTML = ''
+            const editions = ['brands', 'solid', 'regular']
+            editions.map((edition) => {
+                let url = `https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/${edition}/${svgName}.svg`
+                console.log(url)
+                fetch(url).then(async (r) => {
+                    console.log(r.status)
+                    if (r.status===200) {
+                        const svg = await r.text()
+                        const div = document.createElement('div')
+                        div.innerHTML = svg
+                        div.addEventListener('click', () => {
+                            navigator.clipboard.writeText(svg);
+                            div.innerHTML = 'copied!'
+                        })
+                        document.getElementById('preview').append(div)
+                    }
+                })
+            })
+        }
+    </script>
+</body>
+</html>
